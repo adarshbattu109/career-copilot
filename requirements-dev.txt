@@ -1,0 +1,6 @@
+# Test/verification toolkit for the career-copilot plugin (uv venv, Python 3.14).
+# The plugin itself is markdown skills + HTML/JSON assets; these are for validating output.
+pypdf            # verify rendered résumé PDFs: ATS reading-order + keyword presence
+pytest           # test runner
+jsonschema       # validate ~/.career-copilot data files (profile/preferences/jobs)
+beautifulsoup4   # assert résumé HTML is ATS-safe (single column, no tables, standard headings)

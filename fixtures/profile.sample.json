@@ -1,0 +1,36 @@
+{
+  "name": "Alex Morgan",
+  "contact": { "email": "alex.morgan@example.com", "phone": "+91 90000 00000", "location": "Bengaluru, IN", "links": { "linkedin": "linkedin.com/in/alexmorgan", "github": "github.com/alexmorgan" } },
+  "current": { "title": "Senior Software Engineer", "company": "Flowpay", "years_experience": 8 },
+  "summary": "Senior software engineer with 8 years building high-scale backend and platform systems. Cut checkout latency 45% and scaled a payments service to 12M requests/day. Expert at distributed systems, Go, and Kubernetes.",
+  "experience": [
+    { "title": "Senior Software Engineer", "company": "Flowpay", "start": "2021-03", "end": "present",
+      "scope": { "team_size": 6, "ownership": "payments core", "cross_functional": "risk, infra" },
+      "bullets": [
+        { "text": "Led a 6-engineer team rebuilding the payments core; scaled to 12M requests/day at 99.98% uptime.", "impact": "12M req/day, 99.98%", "tools": ["Go", "Kubernetes"] },
+        { "text": "Cut p99 checkout latency 45% (820ms->450ms) by redesigning the settlement pipeline in Go.", "impact": "-45% p99", "tools": ["Go"] },
+        { "text": "Introduced load-based autoscaling on Kubernetes, cutting infra cost 30% ($480k/yr).", "impact": "-30% cost", "tools": ["Kubernetes", "AWS"] }
+      ], "sources": ["resume", "linkedin"], "as_of": "2026-08-20" },
+    { "title": "Software Engineer", "company": "Meshwork", "start": "2018-07", "end": "2021-03",
+      "scope": { "team_size": 0, "ownership": "event ingestion", "cross_functional": "" },
+      "bullets": [
+        { "text": "Built the event-ingestion service (Kafka, Go) handling 2B events/day.", "impact": "2B events/day", "tools": ["Kafka", "Go"] },
+        { "text": "Shipped the public REST + gRPC APIs used by 40+ enterprise customers.", "impact": "40+ customers", "tools": ["gRPC"] }
+      ], "sources": ["resume"], "as_of": "2026-08-20" }
+  ],
+  "timeline": [
+    { "kind": "experience", "label": "Flowpay — Senior Software Engineer", "start": "2021-03", "end": "present", "canonical_of": ["resume", "linkedin"], "conflicts": [] },
+    { "kind": "experience", "label": "Meshwork — Software Engineer", "start": "2018-07", "end": "2021-03", "canonical_of": ["resume"], "conflicts": [] }
+  ],
+  "projects": [
+    { "name": "ratelimit-go", "desc": "token-bucket rate limiter", "tools": ["Go"], "link": "github.com/alexmorgan/ratelimit-go", "impact": "3.2k stars" },
+    { "name": "kubecost-lite", "desc": "cluster cost dashboard", "tools": ["Go", "React"], "link": "", "impact": "" }
+  ],
+  "skills": { "languages": ["Go", "Python", "SQL"], "frameworks": ["gRPC", "React"], "tools": ["Kubernetes", "Kafka", "PostgreSQL", "AWS"], "domains": ["distributed systems", "payments"] },
+  "education": [ { "degree": "B.Tech, Computer Science", "school": "IIT Madras", "year": "2016" } ],
+  "achievements": [], "certifications": [], "publications": [], "talks": [], "awards": [],
+  "open_source": ["ratelimit-go"], "portfolio_links": [], "spoken_languages": ["English", "Hindi"],
+  "target_keywords": ["distributed systems", "Go", "Kubernetes", "payments", "platform"],
+  "personal": { "dob": "", "nationality": "", "photo_path": "", "marital_status": "" },
+  "updated": "2026-08-27"
+}

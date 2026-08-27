@@ -1,0 +1,12 @@
+{
+  "_note": "Résumé template registry. Add a template = drop an HTML file in this dir + an entry here. All are single-column, real-text, ATS-safe clean-room designs (not copied from any provider). tailor-resume lists these and renders the user's pick.",
+  "default": "classic",
+  "templates": [
+    { "id": "classic", "name": "Classic", "file": "resume-template-classic.html",
+      "style": "Centered header, ruled UPPERCASE headings, company-left/location-right, italic titles/dates, bold metrics. Mirrors a Word-style résumé. Most conservative — safest ATS." },
+    { "id": "zenith", "name": "Zenith", "file": "resume-template-zenith.html",
+      "style": "Modern navy name + left-bar headings, carries the same classic structure. Tech-forward. PDF reading-order ATS-verified." },
+    { "id": "ledger", "name": "The Ledger", "file": "resume-template.html",
+      "style": "Minimal, one teal accent, monospace date-ledger, hairline left spine. Distinctive/editorial." }
+  ]
+}

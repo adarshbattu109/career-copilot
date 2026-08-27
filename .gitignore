@@ -1,0 +1,25 @@
+# Python / tooling
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+.DS_Store
+
+# Playwright MCP scratch
+.playwright-mcp/
+
+# Secrets — never commit
+.env
+.env.local
+*.pem
+*.key
+
+# Personal / sensitive input docs — NOT part of the plugin
+# (résumé, salary certificate, signup screenshots, generated resumes)
+*.pdf
+*.png
+*.jpg
+*.jpeg
+
+# Runtime user data lives in ~/.career-copilot (outside repo) — never here
+.career-copilot/

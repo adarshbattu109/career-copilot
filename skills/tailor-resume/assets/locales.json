@@ -1,0 +1,10 @@
+{
+  "_note": "CV conventions by country. Source to extend: https://www.visualcv.com/international/",
+  "US": { "term": "Resume", "photo": false, "personal_details": [], "max_pages": 1, "date_format": "MMM YYYY", "privacy_notes": "No photo, DOB, marital status, or nationality — discrimination-law liability." },
+  "UK": { "term": "CV", "photo": false, "personal_details": [], "max_pages": 2, "date_format": "MMM YYYY", "privacy_notes": "No photo/DOB. 2 pages standard." },
+  "IN": { "term": "Resume", "photo": false, "personal_details": ["dob", "nationality"], "max_pages": 2, "date_format": "MMM YYYY", "privacy_notes": "Photo optional; DOB common but not required. Naukri profiles often include more personal detail." },
+  "DE": { "term": "Lebenslauf", "photo": true, "personal_details": ["dob", "nationality", "marital_status", "address"], "max_pages": 2, "date_format": "MM/YYYY", "privacy_notes": "Photo + personal details customary; often signed/dated. Tabular reverse-chron." },
+  "AE": { "term": "CV", "photo": true, "personal_details": ["dob", "nationality", "marital_status"], "max_pages": 2, "date_format": "MMM YYYY", "privacy_notes": "GCC: photo + nationality + visa status commonly expected." },
+  "CA": { "term": "Resume", "photo": false, "personal_details": [], "max_pages": 2, "date_format": "MMM YYYY", "privacy_notes": "No photo/DOB (human-rights liability), like US." },
+  "AU": { "term": "Resume", "photo": false, "personal_details": [], "max_pages": 2, "date_format": "MMM YYYY", "privacy_notes": "No photo/DOB. 2-3 pages acceptable." }
+}

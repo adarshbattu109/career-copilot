@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Resume — The Ledger</title>
+<!--
+  THE LEDGER — Career Copilot resume template.
+  Fill the sample content below from profile.json. Rules that keep it ATS-safe:
+    - ONE true column, linear reading order. The left "spine" is border/padding only —
+      never move text into a second column.
+    - Real selectable text only. No text-in-images, no skill bars/dots/rings, no layout tables.
+    - Standard headings: Summary / Experience / Projects / Skills / Education.
+  Locale slots (.optional) are hidden by default. For locales that need them (DE/AE),
+  remove the `hidden` attribute on #photo and/or #personal (see assets/locales.json).
+  --accent is the one color knob; change or neutralize it freely.
+-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#1A1A1A; --paper:#FCFCFA; --muted:#6B6B6B; --hair:#E4E3DD; --accent:#2F5D62;
+    --serif:"Fraunces",Georgia,serif; --sans:"Inter",-apple-system,system-ui,sans-serif;
+    --mono:"JetBrains Mono",ui-monospace,monospace;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0}
+  body{
+    background:var(--paper); color:var(--ink); font-family:var(--sans);
+    font-size:10.5pt; line-height:1.5; -webkit-font-smoothing:antialiased;
+  }
+  .page{
+    max-width:760px; margin:0 auto; padding:44px 52px 56px;
+    border-left:2px solid var(--accent);            /* the spine — decoration only */
+  }
+
+  /* ---- masthead ---- */
+  header{display:flex; justify-content:space-between; align-items:flex-start; gap:24px;
+    border-bottom:1px solid var(--hair); padding-bottom:18px; margin-bottom:22px}
+  .name{font-family:var(--serif); font-weight:600; font-size:30pt; line-height:1.02;
+    letter-spacing:-.01em; margin:0}
+  .ticker{font-family:var(--mono); font-size:8.5pt; color:var(--accent);
+    letter-spacing:.02em; margin:8px 0 10px; text-transform:uppercase}
+  .contact{font-family:var(--mono); font-size:8.5pt; color:var(--muted); line-height:1.7}
+  .contact a{color:var(--muted); text-decoration:none}
+  #photo{flex:0 0 auto; width:96px; height:96px; border-radius:3px; object-fit:cover;
+    border:1px solid var(--hair)}
+  #personal{font-family:var(--mono); font-size:8pt; color:var(--muted); margin-top:6px}
+
+  /* ---- sections ---- */
+  section{margin:0 0 18px}
+  h2{font-family:var(--mono); font-size:8.5pt; font-weight:500; text-transform:uppercase;
+    letter-spacing:.14em; color:var(--accent); margin:0 0 10px; padding-bottom:5px;
+    border-bottom:1px solid var(--hair); position:relative; padding-left:14px}
+  h2::before{content:""; position:absolute; left:0; top:1px; width:5px; height:11px;
+    background:var(--accent)}                        /* the accent tick */
+
+  p.summary{margin:0; color:#2a2a2a}
+
+  .entry{margin:0 0 13px}
+  .entry-head{display:flex; justify-content:space-between; align-items:baseline; gap:16px}
+  .role{font-weight:600}
+  .company{color:var(--muted); font-weight:400}
+  .dates{font-family:var(--mono); font-size:8.5pt; color:var(--muted); white-space:nowrap;
+    text-align:right}
+  ul{margin:5px 0 0; padding-left:16px}
+  li{margin:0 0 3px}
+
+  .proj{margin:0 0 7px}
+  .proj .role{font-weight:600}
+  .proj .meta{font-family:var(--mono); font-size:8.5pt; color:var(--muted)}
+
+  .skills dl{margin:0; display:grid; grid-template-columns:max-content 1fr; gap:4px 14px}
+  .skills dt{font-family:var(--mono); font-size:8.5pt; color:var(--accent);
+    text-transform:uppercase; letter-spacing:.04em}
+  .skills dd{margin:0}
+
+  .edu{display:flex; justify-content:space-between; gap:16px}
+  .edu .dates{font-size:8.5pt}
+
+  .optional[hidden]{display:none}
+
+  a:focus-visible{outline:2px solid var(--accent); outline-offset:2px}
+
+  /* ---- print / PDF ---- */
+  @page{size:A4; margin:14mm}
+  @media print{
+    body{background:#fff; font-size:10pt}
+    .page{max-width:none; margin:0; padding:0; border-left:2px solid var(--accent)}
+    a{color:var(--muted)}
+    section{break-inside:avoid}
+    .entry,.proj{break-inside:avoid}
+  }
+  @media (max-width:640px){
+    .page{padding:28px 22px}
+    header{flex-direction:column}
+    .entry-head{flex-direction:column; gap:0}
+    .dates{text-align:left}
+  }
+  @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<main class="page">
+
+  <header>
+    <div class="id">
+      <h1 class="name">Alex Morgan</h1>
+      <div class="ticker">Senior Software Engineer · Bengaluru, IN · Open to remote</div>
+      <div class="contact">
+        <a href="mailto:alex.morgan@example.com">alex.morgan@example.com</a> ·
+        +91 90000 00000<br>
+        <a href="#">linkedin.com/in/alexmorgan</a> · <a href="#">github.com/alexmorgan</a>
+      </div>
+      <!-- Locale slot: shown only for DE/AE etc. Remove `hidden` to enable. -->
+      <div id="personal" class="optional" hidden>Date of birth: — · Nationality: —</div>
+    </div>
+    <!-- Locale slot: photo. Remove `hidden` + set src for DE/AE etc. -->
+    <img id="photo" class="optional" hidden src="" alt="">
+  </header>
+
+  <section>
+    <h2>Summary</h2>
+    <p class="summary">Senior software engineer with 8 years building high-scale backend and
+      platform systems. Cut checkout latency 45% and scaled a payments service to 12M requests/day.
+      Expert at distributed systems, Go, and Kubernetes.</p>
+  </section>
+
+  <section>
+    <h2>Experience</h2>
+
+    <div class="entry">
+      <div class="entry-head">
+        <div><span class="role">Senior Software Engineer</span>,
+          <span class="company">Flowpay</span></div>
+        <div class="dates">Mar 2021 – Present · Bengaluru</div>
+      </div>
+      <ul>
+        <li>Led a 6-engineer team rebuilding the payments core; scaled to 12M requests/day at 99.98% uptime.</li>
+        <li>Cut p99 checkout latency 45% (820ms → 450ms) by redesigning the settlement pipeline in Go.</li>
+        <li>Introduced load-based autoscaling on Kubernetes, cutting infra cost 30% ($480k/yr).</li>
+      </ul>
+    </div>
+
+    <div class="entry">
+      <div class="entry-head">
+        <div><span class="role">Software Engineer</span>,
+          <span class="company">Meshwork</span></div>
+        <div class="dates">Jul 2018 – Mar 2021 · Remote</div>
+      </div>
+      <ul>
+        <li>Built the event-ingestion service (Kafka, Go) handling 2B events/day.</li>
+        <li>Shipped the public REST + gRPC APIs used by 40+ enterprise customers.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <h2>Projects</h2>
+    <div class="proj">
+      <span class="role">ratelimit-go</span> —
+      <span class="meta">token-bucket rate limiter · 3.2k★ · Go</span>
+    </div>
+    <div class="proj">
+      <span class="role">kubecost-lite</span> —
+      <span class="meta">cluster cost dashboard · Go, React</span>
+    </div>
+  </section>
+
+  <section class="skills">
+    <h2>Skills</h2>
+    <dl>
+      <dt>Hard</dt><dd>Go · Python · Kubernetes · Kafka · PostgreSQL · gRPC · AWS</dd>
+      <dt>Soft</dt><dd>Technical leadership · Mentoring · Cross-functional collaboration</dd>
+      <dt>Languages</dt><dd>English · Hindi</dd>
+    </dl>
+  </section>
+
+  <section>
+    <h2>Education</h2>
+    <div class="edu">
+      <div><span class="role">B.Tech, Computer Science</span>, <span class="company">IIT Madras</span></div>
+      <div class="dates">2016</div>
+    </div>
+  </section>
+
+</main>
+</body>
+</html>

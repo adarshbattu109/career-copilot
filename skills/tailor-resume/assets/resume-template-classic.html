@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Résumé — Classic (build-on-your-current)</title>
+<!--
+  CLASSIC template — mirrors the applicant's existing Word-style résumé:
+  centered header, UPPERCASE section headings with a full-width rule, company-left/location-right,
+  italic title/dates rows, bullets with bold metrics. System fonts only (no web deps) so it renders
+  like the original everywhere. ATS-safe: single column, real text, standard headings.
+  Sample content = Adarsh Battu (current/reconciled). Fill from profile.json when tailoring.
+-->
+<style>
+  *{box-sizing:border-box} html,body{margin:0}
+  body{font-family:Calibri,"Segoe UI",Candara,Arial,sans-serif;color:#111;font-size:10.6pt;line-height:1.4}
+  .page{max-width:770px;margin:0 auto;padding:34px 46px}
+
+  header{text-align:center;margin-bottom:12px}
+  .name{font-family:Georgia,"Times New Roman",serif;font-size:23pt;font-weight:700;margin:0;letter-spacing:.2px}
+  .contact{font-size:9.4pt;margin-top:5px}
+  .contact a{color:#111;text-decoration:none}
+
+  h2{font-size:10pt;font-weight:700;text-transform:uppercase;letter-spacing:.5px;
+     border-bottom:1.4px solid #111;padding-bottom:2px;margin:14px 0 7px}
+
+  .row{display:flex;justify-content:space-between;align-items:baseline;gap:14px}
+  .org{font-weight:700}
+  .loc{font-style:italic;white-space:nowrap;color:#222}
+  .title{font-style:italic}
+  .dates{font-style:italic;white-space:nowrap;color:#222}
+  .block{margin:0 0 11px}
+  ul{margin:5px 0 0;padding-left:18px}
+  li{margin:0 0 3px}
+  b{font-weight:700}
+  .skills li{margin-bottom:2px}
+  .cert-row{display:flex;justify-content:space-between}
+
+  @page{size:A4;margin:14mm}
+  @media print{ body{font-size:10.2pt} .page{max-width:none;margin:0;padding:0}
+    a{color:#111} .block,li,h2{break-inside:avoid} h2{break-after:avoid} }
+  @media (max-width:640px){ .page{padding:22px 18px} .row{flex-direction:column;gap:0} .loc,.dates{white-space:normal} }
+</style>
+</head>
+<body>
+<main class="page">
+
+  <header>
+    <h1 class="name">Adarsh Battu</h1>
+    <div class="contact">
+      <a href="mailto:adarsh.battu109@gmail.com">adarsh.battu109@gmail.com</a> |
+      +91 90288 85023 | <a href="https://www.linkedin.com/in/adarshbattu/">LinkedIn</a> |
+      <a href="https://github.com/adarshbattu109">GitHub</a> | Pune, Maharashtra
+    </div>
+  </header>
+
+  <h2>Summary</h2>
+  <p style="margin:0">Quality Cloud Architect and QA-automation leader with 14 years across trading
+    tech, automotive, rail, and fintech. Build PyTest-driven test-automation frameworks that cut
+    cycle time (<b>15 days &rarr; 45 minutes</b>), reduced manual effort <b>60%</b>, and lifted
+    coverage <b>80%</b>. ISTQB-certified; expert at test-automation architecture, Python/PyTest,
+    and contract testing.</p>
+
+  <h2>Experiences</h2>
+
+  <div class="block">
+    <div class="row"><span class="org">ClearRoute India <span style="font-weight:400">(client: Trading Technologies)</span></span><span class="loc">Pune, Maharashtra</span></div>
+    <div class="row"><span class="title">Quality Cloud Architect</span><span class="dates">April 2026 – Present</span></div>
+    <ul>
+      <li>Architected <b>ClearFlow</b>, a PyTest-driven test-automation framework, cutting test-execution time from <b>~15 days to ~45 minutes</b> and enabling continuous, on-demand testing.</li>
+      <li>Authored <b>ClearPact</b>, a PyTest contract-testing plugin that resolved component-level drift across a multi-service / microservices architecture, bringing <b>transparency and observability</b> to cross-component contracts.</li>
+      <li>Driving org-wide innovation to optimize test coverage and modernize test mechanisms across teams.</li>
+      <li>Leading the sunset of legacy/custom frameworks, standardizing on industry-standard tooling.</li>
+    </ul>
+  </div>
+
+  <div class="block">
+    <div class="row"><span class="org">Cerence Service India</span><span class="loc">Pune, Maharashtra</span></div>
+    <div class="row"><span class="title">Principal Software Quality Assurance Engineer</span><span class="dates">September 2022 – April 2026</span></div>
+    <div class="row"><span class="title">Senior Software Quality Assurance Engineer</span><span class="dates">May 2021 – September 2022</span></div>
+    <ul>
+      <li>Streamlined QA workflows and introduced innovative automation strategies, improving org-level QA efficiency by <b>&gt;40%</b>.</li>
+      <li>Built scalable, reusable Python/PyTest frameworks to replace manual testing — <b>&gt;60%</b> manual-effort reduction and <b>80%</b> coverage improvement, enabling faster releases and quicker defect detection.</li>
+      <li>Managed the end-to-end QA lifecycle for multiple international OEMs, collaborating with stakeholders to raise product quality and <b>CSAT</b>.</li>
+      <li>Led cross-functional teams, aligning objectives across engineering and delivery and increasing customer confidence and loyalty.</li>
+    </ul>
+  </div>
+
+  <div class="block">
+    <div class="row"><span class="org">Siemens Technology</span><span class="loc">Pune, Maharashtra</span></div>
+    <div class="row"><span class="title">Test Professional</span><span class="dates">December 2017 – May 2021</span></div>
+    <ul>
+      <li>Migrated manual test cases to automated scripts for <b>ETCS</b> (European Train Control System), increasing automated coverage in line with the Requirements Traceability Matrix.</li>
+      <li>Reviewed deliverables against defined standards and handled defect reporting/tracking with developers for efficient resolution.</li>
+      <li>Managed release processes and automated artifact creation and regression testing, improving consistency and efficiency.</li>
+    </ul>
+  </div>
+
+  <div class="block">
+    <div class="row"><span class="org">Capgemini</span><span class="loc">Pune, Maharashtra</span></div>
+    <div class="row"><span class="title">Consultant</span><span class="dates">January 2017 – December 2017</span></div>
+    <div class="row"><span class="title">Associate Consultant</span><span class="dates">March 2015 – December 2016</span></div>
+    <ul>
+      <li><b>Blockchain:</b> built financial and trade proof-of-concepts on <b>Hyperledger Fabric</b> and <b>R3 Corda</b> for transaction transparency and security.</li>
+      <li><b>Perl:</b> developed Vendor Management, Global Operations and MBREI modules with APIs (Morgan Stanley); automated Autosys jobs and maintained the codebase.</li>
+      <li><b>SQL migration:</b> remediated MS-SQL 2005&rarr;2008 (stored procedures, functions, views, triggers) and embedded SQL in Perl; Perforce version control, HP ALM defect tracking.</li>
+    </ul>
+  </div>
+
+  <div class="block">
+    <div class="row"><span class="org">Tata Consultancy Services (TCS)</span><span class="loc">Pune, Maharashtra</span></div>
+    <div class="row"><span class="title">Systems Engineer</span><span class="dates">January 2013 – February 2015</span></div>
+    <div class="row"><span class="title">Associate Systems Engineer</span><span class="dates">December 2011 – December 2012</span></div>
+    <ul>
+      <li>Automation + Test Analyst: designed test cases for Liquid Access Line; built Perl/UNIX automation; performance-tested MQ application queues.</li>
+      <li>SME / Programmer Analyst: maintained pre/postpaid activation flow; automated daily SQL/shell tasks to cut manual effort; drove process improvements for activation reliability.</li>
+    </ul>
+  </div>
+
+  <h2>Projects</h2>
+  <ul>
+    <li><b>ClearFlow:</b> PyTest test-automation framework (client: Trading Technologies) — Architect; cut cycles 15 days &rarr; 45 min.</li>
+    <li><b>ClearPact:</b> PyTest contract-testing plugin — Author; eliminated cross-service contract drift.</li>
+    <li><b>EMBER:</b> in-house end-to-end target testing framework — Solution Architect, Product Owner &amp; Lead Developer.</li>
+    <li><b>Cerence ChatPro:</b> LLM (ChatGPT)-based in-vehicle infotainment — Test Lead &amp; Manager.</li>
+    <li><b>Cerence Car Knowledge:</b> Python test automation for multiple international car OEMs — Engineer &amp; Lead.</li>
+  </ul>
+
+  <h2>Technical Skills</h2>
+  <ul class="skills">
+    <li><b>Programming:</b> Python, Perl, SQL, Shell</li>
+    <li><b>Databases:</b> Oracle, MS-SQL Server, MySQL, SQLite 3</li>
+    <li><b>Frameworks &amp; Tools:</b> PyTest, Jenkins, Git, GitLab, SVN, Perforce, XRay, Confluence, JIRA, HP ALM, Autosys</li>
+    <li><b>Test Automation:</b> Contract Testing, API, Unit, Integration, UAT, CI/CD, test-automation frameworks</li>
+  </ul>
+
+  <h2>Certifications</h2>
+  <div class="cert-row"><span><b>ISTQB Certified Tester (CTFL)</b> — Indian Testing Board · ID CTFL-134209</span><span class="dates">March 2024</span></div>
+
+  <h2>Education</h2>
+  <div class="row"><span class="org">GRKIST, RGPV, Bhopal</span><span class="dates">September 2007 – June 2011</span></div>
+  <div class="title">B.E. Computer Science &amp; Engineering (Hons.) — 75.4%</div>
+
+  <h2>Awards &amp; Recognition</h2>
+  <ul>
+    <li>Cerence <b>Winner's Circle Award</b> (Dec 2023) &amp; <b>Driver Spot Award</b> (Aug 2023) — process innovation &amp; engineering excellence.</li>
+    <li>Capgemini Blockchain Hackathon Runner-Up (2017) · Capgemini Customer Delight Award (2016) · TCS Gems ×2 (2013, 2014).</li>
+  </ul>
+
+</main>
+</body>
+</html>

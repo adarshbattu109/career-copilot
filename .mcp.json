@@ -1,0 +1,15 @@
+{
+  "mcpServers": {
+    "playwright": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@playwright/mcp@latest",
+        "--user-data-dir",
+        "${HOME}/.career-copilot/browser-profile",
+        "--browser",
+        "chromium"
+      ]
+    }
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "_note": "ATS keyword-bank SEED (not a whitelist) for résumé tailoring + JD scoring. Curated from visualcv.com/resume-skills + broadened for general backend/platform/ML. Skills MUST match beyond these via semantic synonyms — the bank is a starting set, not the limit. Match a JD's required terms against these + the profile + synonyms; surface gaps.",
+  "categories": {
+    "languages": ["Java","JavaScript","TypeScript","Python","Go","Golang","Rust","C++","C#","C","Kotlin","Scala","Ruby","Swift","PHP","SQL","Bash","Shell","HTML","CSS","Node.js"],
+    "backend_platform": ["Distributed Systems","Microservices","Event-Driven Architecture","Message Queues","Kafka","RabbitMQ","gRPC","GraphQL","REST APIs","API Design","Redis","Kubernetes","Docker","Terraform","Service Mesh","Scalability","High Availability","Observability","SRE","Caching","Load Balancing"],
+    "frameworks_tools": ["Selenium","JMeter","Jira","Git","Docker","REST","Web Services","Web Applications","Node.js",".NET","ASP.NET","Visual Studio","Eclipse","Angular","React","Ajax","UML","Design Patterns","Matlab","AutoCAD"],
+    "testing": ["Software Testing","Manual Testing","Automation Testing","UX Testing","Testing Tools","Quality Assurance","API Development","Debugging","SDLC"],
+    "cloud_devops": ["AWS","Azure","Azure DevOps","DevOps","Continuous Integration","CI/CD","Cloud Computing","Linux","Virtualization","Networking","System Administration","Backend","Frontend","Full Stack"],
+    "data": ["Machine Learning","MySQL","Oracle","Microsoft SQL Server","SQL Server","Databases","Business Intelligence","Data Science","Data Analysis","Big Data","ETL","Hadoop","Spark","Tableau","Data Engineering","Data Warehouse","Data Modelling","Data Visualization"],
+    "methodologies": ["Agile","Scrum","Kanban","Lean","Software Development","Software Engineering","Software Architecture","Software Design","OOP","SOLID","Design Patterns","Process Automation","Process Improvement"],
+    "domains": ["Information Security","Application Security","Vulnerability Assessment","Penetration Testing","Risk Management","Cyber Security","IoT","Blockchain","Robotics","Artificial Intelligence","Enterprise Architecture","Solution Architecture"],
+    "soft_skills": ["Communication","Leadership","Team Leadership","Team Management","Time Management","Documentation","Collaboration","Project Management","Stakeholder Management","Change Management","Business Analysis","Problem Solving","Technical Writing"],
+    "qa_sdet": ["QA Engineer","SDET","Test Engineer","Quality Assurance Engineer","Software Tester","Quality Analyst","Selenium","JMeter","Test Automation","Automation Testing","Manual Testing","Regression Testing","Functional Testing","Integration Testing","Unit Testing","API Testing","Performance Testing","Load Testing","Smoke Testing","End-to-End Testing","Test Cases","Test Plans","Defect Tracking","TestNG","JUnit","Cucumber","Cypress","Playwright","Appium","Postman","REST Assured","BDD","TDD","CI/CD Pipelines","Test Automation Framework","Contract Testing","STLC","SDLC","Cross-Browser Testing","Mobile Testing","Continuous Testing"]
+  }
+}

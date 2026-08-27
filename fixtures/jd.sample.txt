@@ -1,0 +1,23 @@
+Senior Backend Engineer — Payments Platform
+Acme Pay · Remote (India) · Posted 3 days ago
+
+About the role
+We're scaling our payments platform and need a senior backend engineer to own core services
+handling millions of transactions per day.
+
+Requirements
+- 6+ years building distributed backend systems in production
+- Strong Go (or similar) and hands-on Kubernetes experience
+- Experience with high-throughput messaging (Kafka or equivalent)
+- Deep knowledge of PostgreSQL and API design (REST/gRPC)
+- Track record of improving latency and reliability at scale
+
+Nice to have
+- Payments / fintech domain experience
+- Experience leading or mentoring engineers
+- AWS cost optimization
+
+What you'll do
+- Own and scale the transaction settlement pipeline
+- Drive latency and uptime improvements
+- Mentor a small team of engineers
