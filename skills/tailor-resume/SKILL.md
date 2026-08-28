@@ -36,20 +36,25 @@ Other assets: `assets/locales.json`, `assets/skill-keywords.json` (ATS keyword b
    - **Projects:** include a Personal Projects section (differentiator).
 5. **Render** — fill the template `file` chosen from `assets/templates.json` (default `classic`);
    keep it a single true column (any spine/accent is decoration, never a text-shifting gutter).
-   Write to `~/.career-copilot/resumes/{job_id}.html`, then PDF with no new
-   dep: `chrome --headless --print-to-pdf={job_id}.pdf {job_id}.html` (or Google Chrome path); if
-   no Chrome, tell the user to open + Print→PDF. Don't ship a broken file.
+   Use the ATS filename convention `{FirstName}_{LastName}_{Role}.pdf` (what `ats-audit` rewards).
+   Write the `.html`, then PDF with no new
+   dep: `chrome --headless --print-to-pdf=<name>.pdf <name>.html` (or Google Chrome path); if
+   no Chrome, tell the user to open + Print→PDF. Don't ship a broken file. **Record the exact path
+   back into the job's entry in `jobs.json` as `resume_file`** so `apply` loads it directly — no
+   filename guessing.
 6. **ATS gate:** run the **`ats-audit`** skill on the rendered PDF for the target role. Confirm text
    extracts in correct reading order and score ≥ 85 with no hard fail (layout table, image-only
    text, missing contact, >2 pages). Apply its fixes and re-render if it falls short.
-7. **Cover letter** — short, company/role-specific, grounded in real achievements.
+7. **Cover letter** — short, company/role-specific, grounded in real achievements. Render it as the
+   `resume_file` sibling `{FirstName}_{LastName}_{Role}.cover.pdf` and record that path in the job's
+   entry as `cover_file` (mirror the `resume_file` contract) so `apply` uploads it directly.
 8. Show a diff-style summary of what changed vs the base and why.
 
 ## Multi-agent (scale to need — token-lean)
 - **Quick (default):** one draft → the two checks below.
 - **Thorough (high-stakes role):** generate 3 variants in parallel (impact-first / keyword-first /
   leadership-first) → parallel critics, then synthesize the winner grafting the best *real* bullets:
-  - **ATS-parse critic** — pdftotext reading-order + JD keyword hit-rate.
+  - **ATS-parse critic** — reading-order via the Read tool / pypdf (no pdftotext dep) + JD keyword hit-rate.
   - **Recruiter-persona critic** — 6-second skim: is the fit obvious?
   - **Truthfulness auditor** — flags any claim not grounded in `profile.json`. **Veto is absolute:**
     a variant that wins on ATS but fabricates is killed.

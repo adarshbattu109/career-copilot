@@ -29,7 +29,8 @@ returns normalized JSON, not raw dumps (token-lean — the main thread never see
   no auth). Infer real projects + skills from languages/topics/pinned/READMEs.
 - **Portfolio / personal site / Google Scholar** — WebFetch the URLs the user shares.
 
-Then, **serially** (one shared browser, via `connect-portal`'s session):
+Then, **serially** (one shared browser, via `connect-portal`'s session; browser tools are
+`mcp__plugin_career-copilot_playwright__browser_*`):
 - **LinkedIn own profile** → `browser_navigate` to own profile → `browser_snapshot`: experience,
   education, skills, certs, recommendations, projects. Own-profile read only.
 - **Naukri own profile** — same, where connected.

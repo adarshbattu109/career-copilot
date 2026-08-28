@@ -1,6 +1,6 @@
 ---
 name: find-jobs
-description: Use to discover relevant jobs across multiple sources (web search, connected LinkedIn/Naukri/Indeed, company career pages), dedup and staleness-filter them, then score each against the profile using the score-jd rubric. Multi-agent fan-out for speed; writes ranked results to ~/.career-copilot/jobs.json for the user to mark pursue/pass/maybe.
+description: Use to discover relevant jobs across multiple sources (HTTP job APIs, connected LinkedIn/Naukri/Indeed, company career pages), dedup and staleness-filter them, then score each against the profile using the score-jd rubric. Multi-agent fan-out for speed; writes ranked results to ~/.career-copilot/jobs.json for the user to mark pursue/pass/maybe.
 ---
 
 # Find jobs (Step 4 — discovery)
@@ -27,7 +27,7 @@ source (role × location) also runs concurrently. Only browser sources are seria
 **1. API sources (HTTP + key — fan out in PARALLEL, no Playwright).** Read keys from
 `~/.career-copilot/config.json` (`{ "adzuna": {"app_id","app_key"}, "jooble": {"key"}, "serpapi": {"key"} }`).
 Use whichever keys are present; skip the rest and say so.
-- **Adzuna** (free dev tier; global incl. India) — `GET api.adzuna.com/v1/api/jobs/in/search/1?app_id=..&app_key=..&what=<role>&where=<city>`.
+- **Adzuna** (free dev tier; global) — `GET api.adzuna.com/v1/api/jobs/<cc>/search/1?app_id=..&app_key=..&what=<role>&where=<city>` where `<cc>` is the country code derived from `preferences.target_countries` (`in`, `gb`, `us`, …), not hardcoded.
 - **Jooble** (free key) — `POST jooble.org/api/<key>` with `{keywords, location}`.
 - **Remotive** (free, remote roles) — `GET remotive.com/api/remote-jobs?search=<role>`.
 - **Google Jobs** — **no official API**; programmatically only via a paid aggregator (SerpApi
@@ -35,8 +35,9 @@ Use whichever keys are present; skip the rest and say so.
   (unreliable + ToS violation).
 
 **2. Browser sources (serial, via `connect-portal` session — only if no API / login-gated):**
-LinkedIn, Naukri, Indeed, company career pages. Run **serially** on the one shared browser; never
-parallelize it. Best-effort DOM extraction; respect rate limits.
+LinkedIn, Naukri, Indeed, company career pages. Browser tools are
+`mcp__plugin_career-copilot_playwright__browser_*`. Run **serially** on the one shared browser;
+never parallelize it. Best-effort DOM extraction; respect rate limits.
 
 **If no API keys are set** (`~/.career-copilot/config.json` missing/empty): don't just fail — run
 **`connect-portal adzuna`** to onboard the user (it walks the free signup, captures the key, saves +
@@ -53,12 +54,15 @@ sources (serial) and say so.
   set, **drop** postings clearly below it (hard filter). Where a posting omits comp, mark "comp
   undisclosed" — don't guess. For cross-country roles, add a **cost-of-living/PPP caveat** (raw FX
   overstates or understates real value). Comp is a filter + surfaced flag, not a fake score dimension.
-- Respect source limits: documented max queries/day, min call interval; on throttle fall back to web
-  search. Disclose the policy; no retry-hammering.
+- Respect source limits: documented max queries/day, min call interval; on throttle back off and
+  fall back to the remaining API sources or (serial) browser sources — queue the rest. Disclose the
+  policy; no retry-hammering.
 
 ## Score + record
 Score each deduped job with the `score-jd` rubric (show the per-dimension breakdown + gaps).
 Append to `~/.career-copilot/jobs.json` (same schema as `score-jd`), `status: "discovered"`.
+**Persist the `jd_text` each source returned** — without it scores can't be reproduced or rescored;
+an entry with empty `jd_text` must be flagged as needing a full JD (per `score-jd` rescore rule).
 Present a ranked list; the user marks each **pursue / pass / maybe** (updates `status`).
 For "pursue" jobs, offer `tailor-resume`. Loop the sweep until the pursue-list hits the user's
 target count.
