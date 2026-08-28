@@ -1,0 +1,15 @@
+schema_version: "1.1"
+name: "score-verdict-vocab"
+runs: 3
+max_turns: 8
+timeout_seconds: 240
+plugins: ["../.."]
+allowed_tools: ["Read", "Write", "Bash", "Skill"]
+tags: ["smoke", "scoring"]
+# VERIFY on first `claude plugin eval` run: that add_dirs seeds a single FILE to an expanded ~ path.
+# If profile.json doesn't land in ~/.career-copilot/, score-jd derails into capture-profile and every
+# grader scores wrong behavior. Fallback = context.scaffold_script (mkdir+cp) run with --scaffold.
+context:
+  add_dirs:
+    - source: "../../fixtures/profile.sample.json"
+      dest: "~/.career-copilot/profile.json"
