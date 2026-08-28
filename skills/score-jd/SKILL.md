@@ -9,7 +9,8 @@ Score ONE job description against `~/.career-copilot/profile.json`. This is the 
 the user already found the JD elsewhere; we score fit and expose gaps, no discovery needed.
 
 ## Flow
-1. Load `profile.json`. If missing → run **capture-profile** first.
+1. Load `profile.json` (and `preferences.json` if present). If profile missing → run
+   **capture-profile** first.
 2. Get the JD: pasted text, a file path, or a URL (fetch it). Extract: title, seniority,
    required + preferred skills, location/remote, and posting date if present.
 3. **Staleness:** if a posting date is present and >14 days old, flag it — still scoreable,
@@ -21,13 +22,14 @@ the user already found the JD elsewhere; we score fit and expose gaps, no discov
    | Skills overlap | 40% | required/preferred skills vs. profile.skills + project tools; normalize with `skills/tailor-resume/assets/skill-keywords.json` **and semantic synonyms** (the bank is a seed, not a whitelist — match beyond listed terms so real overlaps aren't missed) |
    | Seniority / title fit | 25% | JD seniority vs. profile.current + years_experience |
    | Location / remote fit | 20% | JD location vs. profile.contact.location (ask if unknown) |
-   | Preference fit | 15% | comp/stage/role preferences — until Step 3 exists, ask inline or skip and renormalize the other weights to 100% |
+   | Preference fit | 15% | comp/stage/role preferences from `preferences.json` (location is its own dimension above — don't double-count it here); if that file is absent, ask inline or skip and renormalize the other weights to 100% |
 
 5. Output:
    - **Score /100** with the per-dimension breakdown and one-line reasons.
    - **Gaps** — required skills the profile lacks (this feeds resume tailoring AND is the
      honest input for profile grooming later).
-   - **Verdict** — a plain recommendation: strong / worth-tailoring / stretch / skip.
+   - **Verdict** — a plain recommendation, exactly one of: `strong` / `worth-tailoring` /
+     `stretch` / `skip` (this fixed set only — not `pass`/`maybe`/etc.; verdict must track score).
 6. Append to `~/.career-copilot/jobs.json` (create if absent):
 ```json
 { "jobs": [

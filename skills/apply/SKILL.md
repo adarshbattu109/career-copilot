@@ -12,8 +12,9 @@ connected (`connect-portal`). Browser tools are `mcp__plugin_career-copilot_play
 **one shared browser, serial only**.
 
 ## Flow
-1. Load the job from `jobs.json` (status `pursue`) + `profile.json` + the resume from
-   `~/.career-copilot/resumes/{job_id}.*`.
+1. Load the job from `jobs.json` (status `pursue`) + `profile.json` + the resume at the job's
+   recorded `resume_file` path (set by `tailor-resume`). If that field is absent, ask or pick the
+   newest matching file in `~/.career-copilot/resumes/` — never guess a `{job_id}.pdf` name.
 2. **Prep (parallelizable across queued apps, token-lean):** open the application page, map its
    form fields, and draft answers to screening questions from `profile.json` (truthful only —
    never fabricate). Prep may fan out across multiple queued jobs; **submitting does not.**
@@ -31,8 +32,8 @@ connected (`connect-portal`). Browser tools are `mcp__plugin_career-copilot_play
 2. **Read the form first** with `browser_snapshot` to get field refs; never fill blind.
 3. **Fill** with `browser_fill_form` (text/checkbox/combobox/radio) — name, email, phone, location,
    work authorization, experience, screening questions (answers drafted from `profile.json`, truthful).
-4. **Attachments** — upload résumé + cover letter with `browser_file_upload` from
-   `~/.career-copilot/resumes/{job_id}.pdf` (+ `.cover.pdf`).
+4. **Attachments** — upload résumé + cover letter with `browser_file_upload` from the job's
+   `resume_file` and `cover_file` paths (both recorded by `tailor-resume`).
 5. **Multi-step wizards (esp. Workday):** proceed page-by-page — Workday often (a) requires an
    **account** (email+password; the user creates/enters it — we don't store site passwords), then
    (b) **auto-parses the résumé and pre-fills** fields, which you must **review and correct** (parse
@@ -40,7 +41,7 @@ connected (`connect-portal`). Browser tools are `mcp__plugin_career-copilot_play
    verify each step; don't assume a step succeeded.
 6. **Stop at Review/Submit** and show the user the full filled application; submit only on their yes.
 Fall back to hand-off if a step blocks (captcha, SSO, unexpected required field you can't answer truthfully).
-5. **Log immediately** (either path) to `~/.career-copilot/applications.json`:
+7. **Log immediately** (either path) to `~/.career-copilot/applications.json`:
 ```json
 { "applications": [
   { "job_id": "", "company": "", "title": "", "status": "applied",

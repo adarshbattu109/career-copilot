@@ -23,7 +23,7 @@ a live profile without explicit per-action confirmation from the user.
    - **Set preferences** — roles, comp, location, deal-breakers → `preferences` (drives find-jobs).
    - **Find jobs** — discover + score across sources → `find-jobs` (or paste one JD → `score-jd`).
    - **Score a job** — paste a JD or link → `score-jd` (rubric-based fit + gaps).
-   - **Tailor a resume** — pick a scored job → `tailor-resume` (The Ledger, locale-aware, ATS-safe).
+   - **Tailor a resume** — pick a scored job → `tailor-resume` (pick a template, default Classic; locale-aware, ATS-safe).
    - **Audit a résumé** — score an existing or crafted résumé for ATS vs a target role → `ats-audit`.
    - **Apply** — submit a pursued job → `apply` (prep + human-confirmed submit, logged).
 
