@@ -12,6 +12,18 @@ npx playwright install chromium   # once, for portal auth (connect-portal)
 ```
 Then run `/career-wizard` (optionally paste or link a job description).
 
+### Codex
+The skills are harness-agnostic and load in Codex via the plugin manifests in this repo
+(`.agents/plugins/marketplace.json` for discovery, `.codex-plugin/plugin.json` for the
+plugin). Install:
+```
+codex plugin marketplace add <repo-path>
+codex plugin add career-copilot@career-copilot-mp
+```
+Note: `commands/` are Claude-relative slash commands and don't map to Codex; prompt
+Codex to run the skill you want (e.g. "run the capture-profile skill") instead. Connect
+portals still need the Playwright MCP from `.mcp.json`.
+
 ## What works today
 - **connect-portal** — log into LinkedIn / Naukri / company sites in a real browser (bundled
   Playwright MCP, persistent profile). Login persists for harvest + later steps. Opt-in;

@@ -23,3 +23,9 @@ __pycache__/
 
 # Runtime user data lives in ~/.career-copilot (outside repo) — never here
 .career-copilot/
+
+# Editor / local config
+.vscode/
+
+# Executed plan docs — not part of the plugin
+docs/codex-support-plan.md

@@ -1,0 +1,9 @@
+{
+  "name": "career-copilot",
+  "version": "0.2.0",
+  "description": "A resumable wizard that helps applicants apply faster, get interviews, and get hired. Connect job portals (Playwright), rich multi-source profile capture, transparent JD scoring, and locale-aware ATS-safe resume crafting.",
+  "author": {
+    "name": "career-copilot"
+  },
+  "skills": "./skills/"
+}
